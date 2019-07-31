@@ -3,7 +3,10 @@ package com.founq.sdk.testndk;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+
+import java.nio.charset.StandardCharsets;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         TextView tv = findViewById(R.id.sample_text);
         tv.setText(JniUtil.sayHello());
+
+        String s = "qwertyuiop";
+        String encrypt = JniUtil.encrypt(s);
+        Log.i("testencrypt", encrypt);
+        Log.i("testdncrypt", JniUtil.decrypt(encrypt));
+
     }
 
     /**
